@@ -35,8 +35,9 @@ export const assertUploadDetailWithPassword = fileName => {
   cy.get(selectors.password_input).should("be.visible")
 
   cy.get(selectors.download_link).should("not.be.visible")
+}
 
-  cy.get(selectors.password_input).type("3")
-  assertUploadDetailWithoutPassword("3.jpg")
-
+export const enterPasswordAndAssertContent = (password, fileName) => {
+  cy.get(selectors.password_input).type(password)
+  assertUploadDetailWithoutPassword(fileName)
 }

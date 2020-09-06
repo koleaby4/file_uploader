@@ -5,16 +5,19 @@ import * as common from "../support/common";
 context('Upload file', () => {
 
   it('file without password is accessible', () => {
+    const fileName = "test_unprotected.txt"
     common.gotoLandingPage()
-    common.openUploadDetail("1.jpg")
-    common.assertUploadDetailWithoutPassword("1.jpg")
+    common.openUploadDetail(fileName)
+    common.assertUploadDetailWithoutPassword("test_unprotected.txt")
   })
 
   it('password-protected link revealed on correct password ', () => {
+    const fileName = "test_protected.txt"
+
     common.gotoLandingPage()
-    common.openUploadDetail("3.jpg")
-    common.assertUploadDetailWithPassword("3.jpg")
+    common.openUploadDetail(fileName)
+    common.assertUploadDetailWithPassword(fileName)
+
+    common.enterPasswordAndAssertContent("123", fileName)
   })
-
-
 })
