@@ -22,8 +22,9 @@ can download the files.
 
 1. Download the source
 2. Install dependencies: `pip install -r requirements.txt`
-3. Start the server: `python manage.py runserver`
-4. Open `http://127.0.0.1:8000/` in your browser
+3. Run migrations: `python manage.py migrate`
+4. Start the server: `python manage.py runserver`
+5. Open `http://127.0.0.1:8000/` in your browser
 
 # Cypress tests
 
@@ -32,6 +33,10 @@ Install cypress:
  - detailed instructions can be found [here](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements)
 
 Open Cypress runner UI: `npm run cypress:open`
+
+Expected test data: tests rely on the following two uploads being present:
+- `test_protected.txt` with password `123`
+- `test_unprotected.txt` without password
 
 To run tests:
  - serve the project `python manage.py runserver`
