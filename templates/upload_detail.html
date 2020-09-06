@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+
+{% block title%}Upload Detail Page{% endblock %}
+
+{% block content %}
+    <p>{{upload}}</p>
+    {% if upload.password != "" %}
+        <p>This file is password-protected.</p>
+        <input name="password" id="password" placeholder="Please enter password" onkeyup="reveal_file(this)">
+        <a download id="download_link" style="display:none"  href="{{upload.file.url}}">Download</a>
+    {% else %}
+        <a download id="download_link" href="{{upload.file.url}}">Download</a>
+    {% endif %}
+
+    <script type="text/javascript">
+        function reveal_file(password_input_el){
+            entered_password = password_input_el.value;
+            let link = document.getElementById("download_link")
+            if (entered_password == "{{upload.password}}"){
+                link.style.display = "block";
+            } else {
+                link.style.display = "none";
+            }
+        }
+    </script>
+
+{% endblock %}
