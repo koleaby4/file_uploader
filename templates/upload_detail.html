@@ -4,13 +4,13 @@
 {% block title%}Upload Detail Page{% endblock %}
 
 {% block content %}
-    <p>{{upload}}</p>
+    <p test-data="uploaded-file-name">Uploaded file: {{upload}}</p>
     {% if upload.password != "" %}
-        <p>This file is password-protected.</p>
-        <input name="password" id="password" placeholder="Please enter password" onkeyup="reveal_file(this)">
-        <a download id="download_link" style="display:none"  href="{{upload.file.url}}">Download</a>
+        <p test-data="password-message">This file is password-protected.</p>
+        <input name="password" id="password" placeholder="Please enter password" onkeyup="reveal_file(this)" test-data="password-input">
+        <a download id="download_link" style="display:none"  href="{{upload.file.url}}" test-data="download-link">Download</a>
     {% else %}
-        <a download id="download_link" href="{{upload.file.url}}">Download</a>
+        <a download id="download_link" href="{{upload.file.url}}" test-data="download-link">Download</a>
     {% endif %}
 
     <script type="text/javascript">

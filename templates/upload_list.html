@@ -10,7 +10,7 @@ Upload List
 <ul>
     {% for upload in uploads %}
         <li>
-            <a href="/uploads/{{upload.id}}">{{upload}}</a>
+            <a test-data="link-to-upload-detail" href="/uploads/{{upload.id}}">{{upload}}</a>
         </li>
     {% endfor %}
 </ul>
