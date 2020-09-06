@@ -1,4 +1,4 @@
 from django.shortcuts import render, HttpResponse
 
 def upload_list(request):
-    return HttpResponse("wired...")
+    return render(request, 'upload_list.html')
