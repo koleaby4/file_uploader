@@ -17,3 +17,22 @@ can download the files.
 • The sending user can specify for how long the generated link should be considered valid
 • The sending user can drag-and-drop the files they wish to upload
 • The sending user sees a progress bar is displayed during file upload
+
+# Installing dependencies and serving
+
+1. Download the source
+2. Install dependencies: `pip install -r requirements.txt`
+3. Start the server: `python manage.py runserver`
+4. Open `http://127.0.0.1:8000/` in your browser
+
+# Cypress tests
+
+Install cypress:
+ - short installation steps: `npm install cypress --save-dev`
+ - detailed instructions can be found [here](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements)
+
+Open Cypress runner UI: `npm run cypress:open`
+
+To run tests:
+ - serve the project `python manage.py runserver`
+ - in Cypress UI click on `upload.spec.js` link
