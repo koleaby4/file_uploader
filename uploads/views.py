@@ -16,8 +16,9 @@ def new_upload(request):
         uploaded_file = request.FILES["file_obj"]
         password = request.POST.get("password")
 
-        Upload(file=uploaded_file, password=password).save()
-        return redirect('/uploads')
+        new_upload = Upload(file=uploaded_file, password=password)
+        new_upload.save()
+        return redirect(f'/uploads/{new_upload.id}')
 
     else:
         return render(request, 'new_upload.html')

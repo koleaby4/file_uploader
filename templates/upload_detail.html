@@ -1,9 +1,11 @@
 {% extends '_base.html' %}
 
 
-{% block title%}Upload Detail Page{% endblock %}
+{% block title%}Upload Detail{% endblock %}
 
 {% block content %}
+    <h4>Upload Detail</h4>
+
     <p test-data="uploaded-file-name">Uploaded file: {{upload}}</p>
     {% if upload.password != "" %}
         <p test-data="password-message">This file is password-protected.</p>
@@ -12,6 +14,9 @@
     {% else %}
         <a download id="download_link" href="{{upload.file.url}}" test-data="download-link">Download</a>
     {% endif %}
+
+    <p><strong>Send this page's URL (link) to the other party, so they could download the file</strong></p>
+
 
     <script type="text/javascript">
         function reveal_file(password_input_el){
