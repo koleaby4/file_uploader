@@ -6,5 +6,14 @@ Upload List
 
 
 {% block content %}
-content to be added...
+<a href="{% url 'new_upload' %}">New Upload</a>
+
+<ul>
+    {% for upload in uploads %}
+        <li>
+            <a href="/uploads/{{upload.id}}">{{upload}}</a>
+        </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

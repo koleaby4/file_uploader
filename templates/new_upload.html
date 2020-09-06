@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+
+{% block title%}Create Upload{% endblock %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <input type="file" name="file_obj">
+    <input name="password" placeholder="password [optional]">
+    <button type="submit">Submit</button>
+</form>
+
+{% if url %}
+    <a href="{{url}}">{{name}}</a>
+{% endif %}
+
+{% endblock %}
